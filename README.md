@@ -1,5 +1,3 @@
-Aqui está um arquivo README.md para esse projeto:
-
 # Download de Imagens e Background Images
 
 Este projeto consiste em um script Javascript que permite fazer download de todas as imagens e background images de uma página web.
