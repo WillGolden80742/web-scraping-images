@@ -1,28 +1,30 @@
-# Download de Imagens e Background Images
+Here is the README.md file rewritten in English for this project:
 
-Este projeto consiste em um script Javascript que permite fazer download de todas as imagens e background images de uma página web.
+# Download Images and Background Images
 
-## Funcionalidades
+This project consists of a Javascript script that allows to download all the images and background images from a web page.
 
-- Faz download de todas as tags `<img>` em uma página
-- Faz download de todas as imagens definidas como `background-image` no CSS
-- Compacta todas as imagens em um arquivo ZIP para download
-- Permite escolher entre baixar somente imagens, somente background images ou ambos
+## Features
 
-## Como Usar
+- Downloads all `<img>` tags in a page
+- Downloads all images set as `background-image` in CSS
+- Zips all images into a ZIP file for download
+- Allows choosing between downloading only images, only background images or both
 
-1. Copie o código Javascript e cole no console do seu navegador na página desejada
-2. Execute a função `downloadImagesOrBackgroundImagesOrBoth()`
-3. Escolha entre baixar img, background-images ou ambos 
-4. Um arquivo ZIP chamado `downloaded_images.zip` será gerado com todas as imagens
+## How to Use
 
-## Considerações
+1. Copy the Javascript code and paste it into your browser console on the desired page
+2. Execute the function `downloadImagesOrBackgroundImagesOrBoth()`
+3. Choose between downloading img, background-images or both
+4. A ZIP file called `downloaded_images.zip` will be generated with all images
 
-- As imagens são nomeadas com um prefixo `image_` ou `background_image_` e uma marca de tempo
-- Após baixar as background images, um atributo `data-downloaded` é adicionado para não baixar a mesma imagem novamente
-- O código depende da biblioteca JSZip para criar o arquivo ZIP das imagens
-- Foi codificado em base64 e decodificado em runtime para facilitar a execução no console
+## Considerations
 
-## Créditos
+- Images are named with a prefix `image_` or `background_image_` and a timestamp
+- After downloading background images, a `data-downloaded` attribute is added to not download the same image again
+- The code relies on the JSZip library to create the zip file with the images
+- It was base64 encoded and decoded at runtime to facilitate executing in the console
 
-Esse código utiliza a biblioteca [JSZip](https://stuk.github.io/jszip/) para zipar as imagens.
+## Credits
+
+This code uses the [JSZip](https://stuk.github.io/jszip/) library to zip the images.
