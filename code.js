@@ -32,8 +32,9 @@ async function downloadImages(zip) {
             }
 
             const blob = await response.blob();
-            const fileName = 'image_' + Date.now() + '.png';
-            zip.file(fileName, blob);
+            const webpBlob = await convertToWebP(blob);
+            const fileName = 'image_' + Date.now() + '.webp';
+            zip.file(fileName, webpBlob);
         } catch (error) {
             console.error(error.message);
             errors.push(error.message);
@@ -59,8 +60,9 @@ async function downloadBackgroundImages(zip) {
                 }
 
                 const blob = await response.blob();
-                const fileName = 'background_image_' + Date.now() + '.png';
-                zip.file(fileName, blob);
+                const webpBlob = await convertToWebP(blob);
+                const fileName = 'background_image_' + Date.now() + '.webp';
+                zip.file(fileName, webpBlob);
             } catch (error) {
                 console.error(error.message);
                 errors.push(error.message);
@@ -73,6 +75,22 @@ async function downloadBackgroundImages(zip) {
     if (errors.length === elementsWithBackground.length) {
         console.error("All background images failed to download. Aborting.");
     }
+}
+
+async function convertToWebP(blob) {
+    return new Promise((resolve) => {
+        const image = new Image();
+        image.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = image.naturalWidth;
+            canvas.height = image.naturalHeight;
+            canvas.getContext('2d').drawImage(image, 0, 0);
+            canvas.toBlob((webpBlob) => {
+                resolve(webpBlob);
+            }, 'image/webp');
+        };
+        image.src = URL.createObjectURL(blob);
+    });
 }
 
 function downloadBlob(blob, fileName) {
@@ -106,7 +124,7 @@ script.src = "data:text/javascript;base64," + base64JsZipContent;
 document.body.appendChild(script);
 
 // Start the download process call download() function
-script.onload = function() {
+script.onload = function () {
     // Start the download process once the script is loaded
     downloadImagesOrBackgroundImagesOrBoth();
 };
