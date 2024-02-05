@@ -189,6 +189,10 @@ const script = document.createElement('script');
 script.src = "data:text/javascript;base64," + base64JsZipContent;
 document.body.appendChild(script);
 
-// Start the download process call download() function
+// Listen for the script to load
+script.onload = function() {
+    // Start the download process once the script is loaded
+    download();
+};
 
 
