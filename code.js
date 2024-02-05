@@ -42,7 +42,6 @@ function downloadBackgroundImages() {
 
     for (let element of elementsWithBackground) {
         let backgroundImageUrl = getBackgroundImageUrl(element.style.backgroundImage);
-
         if (backgroundImageUrl) {
             fetch(backgroundImageUrl)
                 .then(response => response.blob())
