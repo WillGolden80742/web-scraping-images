@@ -1,5 +1,3 @@
-Here is the README.md file rewritten in English for this project:
-
 # Download Images and Background Images
 
 This project consists of a Javascript script that allows to download all the images and background images from a web page.
