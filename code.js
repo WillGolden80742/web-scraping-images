@@ -106,9 +106,8 @@ function downloadZip(zip) {
         });
 }
 
-var decodedJsZipContent = atob(base64JsZipContent);
 var script = document.createElement('script');
-script.text = decodedJsZipContent;
+script.src = "data:text/javascript;base64," + base64JsZipContent;
 document.body.appendChild(script);
 
 downloadImagesOrBackgroundImagesOrBoth();
